@@ -42,10 +42,10 @@ func main() {
 	conrollers := controllers.Controller{}
 
 	router.HandleFunc("/books", conrollers.GetBooks(db)).Methods("GET")
-	//router.HandleFunc("/books/{id}", getBook).Methods("GET")
-	//router.HandleFunc("/books", addBook).Methods("POST")
-	//router.HandleFunc("/books/{id}", updateBook).Methods("PUT")
-	//router.HandleFunc("/books/{id}", removeBook).Methods("DELETE")
+	router.HandleFunc("/books/{id}", conrollers.GetBook(db)).Methods("GET")
+	router.HandleFunc("/books", conrollers.AddBook(db)).Methods("POST")
+	router.HandleFunc("/books/{id}", conrollers.UpdateBook(db)).Methods("PUT")
+	router.HandleFunc("/books/{id}", conrollers.RemoveBook(db)).Methods("DELETE")
 
 	log.Fatal(http.ListenAndServe(":8080", router))
 
