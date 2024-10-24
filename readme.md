@@ -7,3 +7,4 @@
 | /books        | AddBooks          | POST         |
 | /books        | UpdateBook        | PUT          |
 | /books/{id}   | RemoveBook        | DELETE       |
+
