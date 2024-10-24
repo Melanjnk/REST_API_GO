@@ -9,7 +9,7 @@ import (
 
 var db *sql.DB
 
-func logFatal(err error) {
+func LogFatal(err error) {
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -17,10 +17,10 @@ func logFatal(err error) {
 
 func ConnectDB() *sql.DB {
 	pgUrl, err := pq.ParseURL(os.Getenv("ELEPHANTSQL_URL"))
-	logFatal(err)
+	LogFatal(err)
 	db, err = sql.Open("postgres", pgUrl)
-	logFatal(err)
+	LogFatal(err)
 	err = db.Ping()
-	logFatal(err)
+	LogFatal(err)
 	return db
 }
